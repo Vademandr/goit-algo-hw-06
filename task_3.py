@@ -4,18 +4,18 @@ import matplotlib.pyplot as plt
 
 
 G = nx.Graph()
-stations = ["City A", "City B", "City C", "City D", "City E", "City F"]
+stations = ["Залізничний вокзал", "Торговий центр", "Парк", "Центр міста", "Спальний район", "Пляж"]
 G.add_nodes_from(stations)
 
 
 edges = [
-    ("City A", "City B", 1),
-    ("City B", "City C", 2),
-    ("City C", "City D", 1),
-    ("City D", "City E", 3),
-    ("City E", "City F", 2),
-    ("City F", "City A", 4),
-    ("City A", "City D", 5),
+    ("Залізничний вокзал", "Торговий центр", 1),
+    ("Торговий центр", "Парк", 2),
+    ("Парк", "Центр міста", 1),
+    ("Центр міста", "Спальний район", 3),
+    ("Спальний район", "Пляж", 2),
+    ("Пляж", "Залізничний вокзал", 4),
+    ("Залізничний вокзал", "Центр міста", 5),
 ]
 
 G.add_weighted_edges_from(edges)
@@ -68,5 +68,5 @@ nx.draw(
 edge_labels = {(u, v): f'{d["weight"]}' for u, v, d in G.edges(data=True)}
 nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels)
 
-plt.title("Схема транспортної мережі між містами з вагами ребер")
+plt.title("Схема транспортної мережі міста з вагами ребер")
 plt.show()

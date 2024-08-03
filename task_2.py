@@ -1,15 +1,15 @@
 import networkx as nx
 
 G = nx.Graph()
-stations = ["City A", "City B", "City C", "City D", "City E", "City F"]
+stations = ["Залізничний вокзал", "Торговий центр", "Парк", "Центр міста", "Спальний район", "Пляж"]
 edges = [
-    ("City A", "City B"),
-    ("City B", "City C"),
-    ("City C", "City D"),
-    ("City D", "City E"),
-    ("City E", "City F"),
-    ("City F", "City A"),
-    ("City A", "City D"),
+    ("Залізничний вокзал", "Торговий центр"),
+    ("Торговий центр", "Парк"),
+    ("Парк", "Центр міста"),
+    ("Центр міста", "Спальний район"),
+    ("Спальний район", "Пляж"),
+    ("Пляж", "Залізничний вокзал"),
+    ("Залізничний вокзал", "Центр міста"),
 ]
 G.add_nodes_from(stations)
 G.add_edges_from(edges)
@@ -51,7 +51,7 @@ def bfs(graph, start):
     return path
 
 
-start_node = "City A"
+start_node = "Залізничний вокзал"
 dfs_path = dfs(G, start_node)
 bfs_path = bfs(G, start_node)
 
